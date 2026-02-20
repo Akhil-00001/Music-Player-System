@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#111827"/>
+
+  <!-- Headband -->
+  <path d="M50 95 A50 50 0 0 1 150 95" 
+        stroke="#22d3ee" 
+        stroke-width="10" 
+        fill="none" 
+        stroke-linecap="round"/>
+
+  <!-- Left earcup -->
+  <rect x="40" y="95" width="30" height="50" rx="12" fill="#22d3ee"/>
+
+  <!-- Right earcup -->
+  <rect x="130" y="95" width="30" height="50" rx="12" fill="#22d3ee"/>
+
+  <!-- Play button circle -->
+  <circle cx="100" cy="115" r="28" fill="#1f2937"/>
+
+  <!-- Play icon -->
+  <polygon points="92,100 92,130 118,115" fill="#22d3ee"/>
+</svg>
