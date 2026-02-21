@@ -178,7 +178,7 @@ function playaudio(url) {
     circle.style.left = "0px";
     document.querySelector(".content").innerHTML = arrayoflis[index].innerText;
     const title = arrayoflis[index].childNodes[0].textContent.trim();
-addToRecent(arrayoflis[index].dataset.id, title,arrayoflis[index].dataset.url);
+    addToRecent(arrayoflis[index].dataset.id, title, arrayoflis[index].dataset.url);
 }
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -310,7 +310,15 @@ async function loadLibraries() {
             <div>${folder}</div>
         `;
 
-        div.addEventListener("click", () => loadFolderSongs(folder));
+        div.addEventListener("click", () => {
+            let ele = document.querySelector(".sidebar")
+            if (ele.classList.contains("closed")) {
+                ele.classList.remove("closed");
+                sliderflag = true;
+                burger.style.transform = "translateX(-120%)";
+            }
+            loadFolderSongs(folder)
+        });
 
         cardsContainer.appendChild(div);
     }
@@ -391,7 +399,7 @@ async function addToRecent(id, title, file_url) {
         })
     });
 
-    // await loadLibraries();
+    
 }
 
 async function main() {
@@ -416,17 +424,5 @@ async function main() {
     applyLanguage(savedLang);
     loadIcons();
     transitions();
-    const mediaquery = window.matchMedia("(max-width: 600px)")
-    mediaquery.addEventListener("change", (e) => {
-        document.querySelector(".sidebar").classList.add("closed");
-        sliderflag = false;
-        burger.style.transform = "translateX(100%)";
-    });
-    const mediaquery1 = window.matchMedia("(min-width: 601px)")
-    mediaquery1.addEventListener("change", (e) => {
-        document.querySelector(".sidebar").classList.remove("closed");
-        sliderflag = true;
-        burger.style.transform = "translateX(-120%)";
-    });
 }
 main()
