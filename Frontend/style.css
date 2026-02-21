@@ -14,6 +14,7 @@ html, body {
 .main {
     display: flex;
     width: 100vw;
+    box-sizing: border-box;
     background: url("Images/background.jpg") center/cover no-repeat;
 
     height: 100vh;
@@ -84,6 +85,16 @@ li {
     cursor: pointer;
 }
 
+li {
+    position: relative;
+}
+
+li > button {
+    background-color: transparent;
+  position: absolute;
+  right: 4px;
+}
+
 #play,
 #prev,
 #next {
@@ -108,6 +119,20 @@ li {
     top: 25px;   
 }
 
+#languageSelect {
+    background-color: rgba(128, 128, 128, 0.438);
+    box-shadow: 3px 3px 2px 0px;
+    border: 2px solid #545454;
+    border-radius: 5px;
+    width: 100px;
+    height: 27px;
+}
+
+#languageSelect:focus {
+    outline: 2px solid gray;
+    outline-offset: 2px;
+}
+
 .buttons button {
     background-color: rgba(128, 128, 128, 0.438);
     box-shadow: 3px 3px 2px 0px;
@@ -122,15 +147,14 @@ li {
 }
 
 .libraries {
-    flex: 1;  
-    width: 80%;              
+    flex: 1;
+    width: 1236px;
     height: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    overflow: hidden;
     position: relative;
-    /* overflow-y: scroll; */
-    /* scrollbar-3dlight-color: aqua; */
 }
 
 .sidebar.closed {
@@ -142,9 +166,53 @@ li {
     will-change: transform, flex;
 }
 
+h3 {
+    filter: invert(1);
+    position: absolute;
+    left: 100px;
+
+}
+
+.content {
+    width: 30%;
+    height: 20%;
+}
+
+#yours{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    /* height: 50%; */
+}
+
+#yours img {
+    object-fit: contain;
+}
 
 .head img {
     filter: invert();
+}
+.userLibraries {
+    color: white;
+    width: 50%;
+    height: 50%;
+    padding: 10px 20px;
+    /* overflow: scroll;*/
+}
+.userList p {
+    width: 200%;
+    height: 20%;
+    margin: 4px 0;
+    cursor: pointer;
+}
+  
+.separate {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: 70%;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .player {
@@ -215,10 +283,9 @@ li {
 .cards {
     display: flex;
     gap: 30px;
-    width: 100%;
-    height: 70%; 
-    flex-wrap: wrap;
-    overflow-y: scroll;
+    width: 79vw;
+    /* height: 50%; */
+    scrollbar-width: none;
 }
 
 .card {
@@ -227,13 +294,14 @@ li {
     justify-content: space-evenly;
     width: 200px;
     min-width: 200px;
-    /* aspect-ratio: 16/9; */
+    /* aspect-ratio: 16 / 9; */
     height: 300px;
     min-height: 300px;
     cursor: pointer;
     border: 2px solid rgb(211, 201, 201);
     color: white;
 }
+
 
 .card img {
     object-fit: cover;
